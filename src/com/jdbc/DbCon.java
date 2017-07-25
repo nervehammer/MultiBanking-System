@@ -16,7 +16,7 @@ public class DbCon {
 				e.printStackTrace();
 			}
 			//Change here for different user in a database
-			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","mca6");
+			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","multibanking","multibanking");
 			System.out.println("connection is created ");
 			
 		}catch(java.sql.SQLException e) {
