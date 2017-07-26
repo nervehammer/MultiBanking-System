@@ -9,7 +9,7 @@ String upass = request.getParameter("userpassword");
 
 Connection con = DbCon.dbCon();
 
-PreparedStatement ps = con.prepareStatement("select * from userinfo where username=? and userpassword=?)");
+PreparedStatement ps = con.prepareStatement("select * from userinfo where username=? and userpassword=?");
 
 ps.setString(1, uname);
 ps.setString(2, upass);
