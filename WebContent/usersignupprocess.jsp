@@ -10,5 +10,7 @@ PreparedStatement ps = con.prepareStatement("insert into userinfo(username,userp
 
 ps.setString(1, uname);
 ps.setString(2, upass);
-ps.executeQuery();
+ps.executeUpdate();
+con.close();
+response.sendRedirect("index.html");
 %>

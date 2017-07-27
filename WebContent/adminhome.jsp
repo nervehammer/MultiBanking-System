@@ -1,9 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> -->
+
 <title>ADMIN HOME</title>
-<link href="col_font.css" rel="stylesheet" type="text/css" />
+
+<!-- <link href="col_font.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 <!--
 .style1 {
@@ -19,12 +23,15 @@
 }
 .style8 {font-size: 12px}
 .style9 {font-weight: bold}
--->
+
 </style>
 <link href="img.css" rel="stylesheet" type="text/css" />
+-->
+
+
 </head>
 
-<body bgcolor="#007289">
+<!-- <body bgcolor="#007289">
 <table width="84%" height="696" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#E4DEDA">
   <tr>
     <td width="11%" height="100" bgcolor="white">&nbsp;&nbsp;<img src="hawaii_national_bank_website_3.jpg" alt="img_3" width="36" height="51" hspace="30" vspace="30" /></td>
@@ -75,5 +82,27 @@
 
 <map name="Map" id="Map"><area shape="poly" coords="26,32" href="#" />
 <area shape="poly" coords="48,69" href="#" />
-</map></body>
+</map></body> -->
+
+<body>
+
+
+
+
+
+
+<a href="addbankadmin.jsp">Add BANK ADMINISTRATOR</a>	<!-- To redesign into "manage b-admins" -->
+
+<br />
+<br />
+<br />
+<br />
+
+<a href="index.html"><h4>HOME</h4></a>
+
+
+
+
+
+</body>
 </html>

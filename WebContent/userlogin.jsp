@@ -2,7 +2,7 @@
 
 <!--TODO: action left of this table  -->
 
-<form action="uservalidationprocess.jsp">   
+<form action="userloginprocess.jsp">   
 
 <table class="table">
 <tr><td>UserName :</td><td><input type="text" name="username"></td></tr>
