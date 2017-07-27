@@ -31,7 +31,7 @@
 	 }
     
    con.close();
-   response.sendRedirect("userhome.jsp");
+   response.sendRedirect("bankadminhome.jsp");
    }catch(Exception e){
 	  System.out.println("error");
    }

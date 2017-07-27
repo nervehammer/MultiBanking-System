@@ -1,5 +1,4 @@
 <%@ page import ="java.sql.*,com.jdbc.*" %>
-
 <h2>USER VALIDATION CHECK HERE</h2>
 
 <%
@@ -18,12 +17,12 @@ ResultSet rs = ps.executeQuery();
 
 if(rs.next()){
 	
-	System.out.println("valid");
-response.sendRedirect("");        //here redirect user to Register for newbank 
+	out.println("valid");
+	response.sendRedirect("userhome.jsp");        //here redirect user to Register for newbank 
 }
 else{
 	
-	System.out.println("notvalid");
+	out.println("not valid");
 	
 }
 %>
