@@ -5,10 +5,10 @@
 
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> -->
 <title> </title>
-<link href="col_font.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
+<!-- <link href="col_font.css" rel="stylesheet" type="text/css" /> -->
+<!-- <style type="text/css"> -->
 <!--
 .style1 {
 	color: "skyblue";
@@ -24,11 +24,11 @@
 .style8 {font-size: 12px}
 .style9 {font-weight: bold}
 -->
-</style>
-<link href="img.css" rel="stylesheet" type="text/css" />
+<!-- </style> -->
+<!-- <link href="img.css" rel="stylesheet" type="text/css" /> -->
 </head>
 
-<body bgcolor="#007289">
+<%-- <body bgcolor="#007289">
 
 
 <%
@@ -96,5 +96,49 @@ String bn=(String)session.getAttribute("bname");
 
 <map name="Map" id="Map"><area shape="poly" coords="26,32" href="#" />
 <area shape="poly" coords="48,69" href="#" />
-</map></body>
+</map></body> --%>
+
+
+
+
+
+
+
+
+
+
+<body>
+
+
+<a href="tempuserlist.jsp">List all Users</a>
+
+
+
+<a href="pendinguserlist.jsp">Pending User Account Request</a>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </html>
