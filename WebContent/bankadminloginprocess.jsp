@@ -11,6 +11,7 @@
 	   String bankname=request.getParameter("bankname");
 	   String uname=request.getParameter("username");
 	   String upass=request.getParameter("userpassword");
+	   session.setAttribute("bname", bankname);
 	   
 	   PreparedStatement st=con.prepareStatement("select bankname from bankadmininfo where bankname=? and username=? and userpassword=?");
 	   

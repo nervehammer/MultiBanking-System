@@ -23,7 +23,8 @@
         	<th><h3>Account Holder Name</h3></th>
         	<th><h3>Mobile Number</h3></th>
         	<th><h3>Account Type</h3></th>
-        	<td>
+        	<th><h3>Operation</h3></th>
+        	
 
         	<%
         	while(rs.next())
@@ -37,6 +38,12 @@
         	<td><%=rs.getString(3) %></td>
         	<td><%=rs.getString(5) %></td>
         	<td><%=rs.getString(6) %></td>
+        	<td>
+        	<!-- <input type="submit" value="Valitate" submit="validateprocess.jsp"> -->
+        	<!-- <button onclick="validateprocess.jsp">Validate</button> -->
+        	
+        	<a href="validateprocess.jsp">Validate</a>
+        	</td>
         	
         	</tr>
         	
