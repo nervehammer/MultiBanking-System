@@ -4,7 +4,8 @@
 <%
 
 String uname = request.getParameter("username"); 
-String upass = request.getParameter("userpassword"); 
+String upass = request.getParameter("userpassword");
+String unqid;
 
 Connection con = DbCon.dbCon();
 
@@ -18,6 +19,8 @@ ResultSet rs = ps.executeQuery();
 if(rs.next()){
 	
 	out.println("valid");
+	unqid=rs.getString(3);
+	session.setAttribute("unqid",unqid);
 	response.sendRedirect("userhome.jsp");        //here redirect user to Register for newbank 
 }
 else{

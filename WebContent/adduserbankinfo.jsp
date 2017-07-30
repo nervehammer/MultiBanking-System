@@ -46,13 +46,7 @@
         	</td>
         	</tr>
 
-        	<tr>
-        	<td><h3>Profile Password</h3></td>
-        	<td>
-        	<input type="password" name="ppass">
-        	</td>
-        	</tr>
-        
+              
        		<tr>
        		<td><h3>Mobile Number</h3></td>
        		<td>

@@ -20,11 +20,11 @@
 	   if(rs.next()){
 		   //TODO: SET SESSION AND REDIRECT TO BANKADMIN HOME PAGE
 		   Statement stmt = con.createStatement();
-	   		stmt.executeUpdate("update tempuserbankinfo set status =1");
+	   		stmt.executeUpdate("update tempuserbankinfo set status =1,remarks='User Verified'");
 	   		System.out.println("stmt exec");
 		   }else{
 			   Statement stmt = con.createStatement();
-			   stmt.executeUpdate("update tempuserbankinfo set status =-1");
+			   stmt.executeUpdate("update tempuserbankinfo set status =-1,remarks='Information Mismatch'");
 			   System.out.println("stmt exec");
 			   }
 	   con.close();

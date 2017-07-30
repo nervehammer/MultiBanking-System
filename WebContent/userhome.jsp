@@ -8,7 +8,7 @@
 
 <a href="adduserbankinfo.jsp">Add bank</a>
 
-
+<a href="addbankstatus.jsp">Check Add Bank Status</a>
 
 
 <br />
@@ -16,7 +16,7 @@
 <br />
 <br />
 
-<a href="index.html"><h4>HOME</h4></a>
+<a href="index.html"><strong>HOME</strong>></a>
 
 </body>
 </html>
