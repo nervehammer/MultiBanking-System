@@ -20,11 +20,13 @@
 	String mnum=request.getParameter("mnum");
 	String atype=request.getParameter("atype");
 	String tpass=request.getParameter("tpass");
+	String unqid=session.getAttribute("unqid").toString();
 	     
-	PreparedStatement st = con.prepareStatement("insert into tempuserbankinfo (bname,anum,ahname,mnum,atype,tpass) values(?,?,?,?,?,?)");
+	PreparedStatement st = con.prepareStatement("insert into tempuserbankinfo (bname,anum,ahname,unqid,mnum,atype,tpass) values(?,?,?,?,?,?,?)");
     st.setString(1,bname);
 	st.setString(2,anum);    
 	st.setString(3,ahname);
+	st.setString(4,unqid);
     st.setString(5,mnum);
     st.setString(6,atype);
   	st.setString(7,tpass);
