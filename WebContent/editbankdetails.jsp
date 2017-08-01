@@ -1,11 +1,11 @@
 <%@ page import ="java.sql.*,com.jdbc.*" %>
 
 <%!
-	String bname,accno,ahname,mnum,atype;
+	String bankdes,accno,ahname,mnum,atype;
 	public void setvalue(ResultSet rs)throws SQLException{
-		bname=rs.getString(1);
+		bankdes=rs.getString(1);
 	   	accno=rs.getString(2);
-	   	ahname=rs.getString(4);
+	   	ahname=rs.getString(3);
 	   	mnum=rs.getString(5);
 	   	atype=rs.getString(6);
 	}
@@ -18,7 +18,7 @@
 	   //Class.forName("oracle.jdbc.driver.OracleDriver");
 	   //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","java");
 	   
-	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status=-1 and unqid=?");
+	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status in(0,-1) and unqid=?");
 	   st.setString(1,session.getAttribute("unqid").toString());
 	   rs = st.executeQuery();
 	   while(rs.next())
@@ -38,11 +38,25 @@
 		<table align="center">
  	 
         	<tr>
-        	<td><h3>Bank</h3></td>
-        	<td>
-        	<input type="text" name="bname" value="<%=bname%>">
-        	</td>
-        	</tr>
+ 			<td><h3>Select Bank</h3></td>
+ 			<td>
+ 			<select name="bankdes" >
+ 			<option value="">- Please select a bank -</option>
+			<%
+				Connection con = DbCon.dbCon();
+				
+				PreparedStatement st = con.prepareStatement("select * from bankinfo");
+				
+				ResultSet rs = st.executeQuery();
+				
+				while(rs.next()){
+
+			%>
+			<option><%=rs.getString(2)%></option>
+				<%}%>
+  			</select>
+  			</td>
+  			</tr>
 
         	<tr>
         	<td><h3>Account Number</h3></td>

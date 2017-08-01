@@ -5,10 +5,14 @@
 	   ResultSet rs = null;
 	   Connection con=DbCon.dbCon();
 	   
+	   
+	   String unqid = session.getAttribute("unqid").toString();
+	   
 	   //Class.forName("oracle.jdbc.driver.OracleDriver");
 	   //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","java");
 	   
-	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status=-1 OR status=0");
+	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status in(-1,0) and unqid=?");
+	   st.setString(1, unqid);
 	   
 	   rs = st.executeQuery();
 	   
@@ -41,7 +45,7 @@
         	<td><%=rs.getString(3) %></td>
         	<td><%=rs.getString(5) %></td>
         	<td><%=rs.getString(6) %></td>
-        	<td><%=rs.getString(9) %></td>
+        	<td><%=rs.getString(10) %></td>
         	<td>
         	        	
         		<a href="editbankdetails.jsp">Edit Details</a>

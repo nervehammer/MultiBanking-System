@@ -6,12 +6,33 @@
  
 		<table align="center">
  			
-        	<tr>
+        	<!-- <tr>
         	<td><h3>Bank Name</h3></td>
         	<td>
         	<input type="text" name="bankname" onblur="checkno()" id="acno">
         	</td>
-        	</tr>
+        	</tr> -->
+        	
+        	<tr>
+ 			<td><h3>Select Bank</h3></td>
+ 			<td>
+ 			<select name="bankdes">
+ 			<option value="">- Please select a bank -</option>
+			<%
+				Connection con = DbCon.dbCon();
+				
+				PreparedStatement st = con.prepareStatement("select * from bankinfo");
+				
+				ResultSet rs = st.executeQuery();
+				
+				while(rs.next()){
+
+			%>
+			<option><%=rs.getString(2)%></option>
+				<%}%>
+  			</select>
+  			</td>
+  			</tr>
 
         	<tr>
         	<td><h3>Provide an Admin</h3></td>
@@ -23,7 +44,7 @@
         	<tr>
         	<td><h3>New Password</h3></td>
         	<td>
-        	<input type="text" name="userpassword">
+        	<input type="password" name="userpassword">
         	</td>
         	</tr>
 

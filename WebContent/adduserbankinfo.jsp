@@ -5,16 +5,18 @@
 	<h2><b>Enter Account Details</b></h2>
  
 		<table align="center">
- 			<%-- <tr>
+ 			
+ 			<tr>
  			<td><h3>Select Bank</h3></td>
  			<td>
- 			<select name="bname">
+ 			<select name="bankdes">
+ 			<option value="">- Please select a bank -</option>
 			<%
 				Connection con = DbCon.dbCon();
 				
-				PreparedStatement st=con.prepareStatement("select * from bank ");
+				PreparedStatement st = con.prepareStatement("select * from bankinfo");
 				
-				ResultSet rs=st.executeQuery();
+				ResultSet rs = st.executeQuery();
 				
 				while(rs.next()){
 
@@ -23,14 +25,14 @@
 				<%}%>
   			</select>
   			</td>
-  			</tr> --%>
+  			</tr>
  
-        	<tr>
+        	<!-- <tr>
         	<td><h3>Enter Bank</h3></td>
         	<td>
         	<input type="text" name="bname" onblur="checkno()" id="acno">
         	</td>
-        	</tr>
+        	</tr> -->
 
         	<tr>
         	<td><h3>Enter Account Number</h3></td>
@@ -45,6 +47,12 @@
         	<input type="text" name="ahname">
         	</td>
         	</tr>
+        	
+        	
+        	<tr>
+			<td><h3>Enter Profile Password</h3></td>
+			<td><input type="password" name="ppass"></td>
+			</tr>
 
               
        		<tr>
