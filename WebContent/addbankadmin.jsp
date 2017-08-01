@@ -5,11 +5,17 @@
 	<h2><b>Enter Bank And Admin Details</b></h2>
  
 		<table align="center">
- 			
+ 			<tr>
+        	<td><h3>Bank ID</h3></td>
+        	<td>
+        	<input type="text" name="bankid">
+        	</td>
+        	</tr>
+        	
         	<tr>
         	<td><h3>Bank Name</h3></td>
         	<td>
-        	<input type="text" name="bankname" onblur="checkno()" id="acno">
+        	<input type="text" name="bankname">
         	</td>
         	</tr>
 

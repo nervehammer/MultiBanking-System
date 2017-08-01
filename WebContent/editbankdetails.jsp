@@ -1,13 +1,14 @@
 <%@ page import ="java.sql.*,com.jdbc.*" %>
 
 <%!
-	String bname,accno,ahname,mnum,atype;
+	String bname,cid,accno,ahname,mnum,atype;
 	public void setvalue(ResultSet rs)throws SQLException{
-		bname=rs.getString(1);
-	   	accno=rs.getString(2);
-	   	ahname=rs.getString(4);
-	   	mnum=rs.getString(5);
-	   	atype=rs.getString(6);
+		bname=rs.getString(2);
+		cid=rs.getString(3);	
+	   	accno=rs.getString(4);
+	   	ahname=rs.getString(5);
+	   	mnum=rs.getString(6);
+	   	atype=rs.getString(7);
 	}
 %>
    <%  try{
@@ -19,6 +20,7 @@
 	   //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","java");
 	   
 	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status=-1 and unqid=?");
+	   out.println(session.getAttribute("unqid").toString());
 	   st.setString(1,session.getAttribute("unqid").toString());
 	   rs = st.executeQuery();
 	   while(rs.next())
@@ -41,6 +43,13 @@
         	<td><h3>Bank</h3></td>
         	<td>
         	<input type="text" name="bname" value="<%=bname%>">
+        	</td>
+        	</tr>
+        	
+        	<tr>
+        	<td><h3>Customer ID</h3></td>
+        	<td>
+        	<input type="text" name="cid" value="<%=cid%>">
         	</td>
         	</tr>
 

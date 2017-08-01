@@ -2,15 +2,17 @@
 <%
 
 String uname = request.getParameter("username"); 
-String upass = request.getParameter("userpassword"); 
+String lpass = request.getParameter("loginpassword"); 
+String ppass = request.getParameter("profilepassword"); 
 
 Connection con = DbCon.dbCon();
 
-PreparedStatement ps = con.prepareStatement("insert into userinfo(username,userpassword) values(?,?)");
+PreparedStatement ps = con.prepareStatement("insert into userinfo(username,loginpassword,profilepassword) values(?,?,?)");
 
-ps.setString(1, uname);
-ps.setString(2, upass);
+ps.setString(1,uname);
+ps.setString(2,lpass);
+ps.setString(3,ppass);
 ps.executeUpdate();
 con.close();
-response.sendRedirect("index.html");
+response.sendRedirect("userlogin.jsp");
 %>

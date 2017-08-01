@@ -19,6 +19,7 @@
  			
  
         	<tr>
+        	<th><h3>Customer ID</h3></th>
         	<th><h3>Account Number</h3></th>
         	<th><h3>Account Holder Name</h3></th>
         	<th><h3>Mobile Number</h3></th>
@@ -34,10 +35,11 @@
 
         	<tr>
         	
-        	<td><%=rs.getString(2) %></td>
         	<td><%=rs.getString(3) %></td>
+        	<td><%=rs.getString(4) %></td>
         	<td><%=rs.getString(5) %></td>
         	<td><%=rs.getString(6) %></td>
+        	<td><%=rs.getString(7) %></td>
         	<td>
         	<!-- <input type="submit" value="Valitate" submit="validateprocess.jsp"> -->
         	<!-- <button onclick="validateprocess.jsp">Validate</button> -->

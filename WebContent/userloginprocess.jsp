@@ -4,24 +4,24 @@
 <%
 
 String uname = request.getParameter("username"); 
-String upass = request.getParameter("userpassword");
+String lpass = request.getParameter("loginpassword");
 String unqid;
 
 Connection con = DbCon.dbCon();
 
-PreparedStatement ps = con.prepareStatement("select * from userinfo where username=? and userpassword=?");
+PreparedStatement ps = con.prepareStatement("select * from userinfo where username=? and loginpassword=?");
 
-ps.setString(1, uname);
-ps.setString(2, upass);
+ps.setString(1,uname);
+ps.setString(2,lpass);
 
 ResultSet rs = ps.executeQuery();
 
 if(rs.next()){
 	
 	out.println("valid");
-	unqid=rs.getString(3);
+	unqid=rs.getString(1);
 	session.setAttribute("unqid",unqid);
-	response.sendRedirect("userhome.jsp");        //here redirect user to Register for newbank 
+	response.sendRedirect("userhome.jsp");
 }
 else{
 	

@@ -3,10 +3,7 @@
      try{
 	   
 	   ResultSet rs = null;
-	   Connection con=DbCon.dbCon();
-	   
-	   //Class.forName("oracle.jdbc.driver.OracleDriver");
-	   //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","java");
+	   Connection con=DbCon.dbCon();  
 	   
 	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status=-1 OR status=0");
 	   
@@ -19,13 +16,14 @@
  			
  
         	<tr>
-        	<th><h3>Bank Name</h3></th>
-        	<th><h3>Account Number</h3></th>
-        	<th><h3>Account Holder Name</h3></th>
-        	<th><h3>Mobile Number</h3></th>
-        	<th><h3>Account Type</h3></th>
-        	<th><h3>Remarks</h3></th>
-        	<th><h3>Operation</h3></th>
+        	<th><h4>Bank Name</h4></th>
+        	<th><h4>Customer ID</h4></th>
+        	<th><h4>Account Number</h4></th>
+        	<th><h4>Account Holder Name</h4></th>
+        	<th><h4>Mobile Number</h4></th>
+        	<th><h4>Account Type</h4></th>
+        	<th><h4>Remarks</h4></th>
+        	<th><h4>Operation</h4></th>
         	
         	
 
@@ -36,12 +34,13 @@
         	%>
 
         	<tr>
-        	<td><%=rs.getString(1) %></td>
         	<td><%=rs.getString(2) %></td>
         	<td><%=rs.getString(3) %></td>
+        	<td><%=rs.getString(4) %></td>
         	<td><%=rs.getString(5) %></td>
         	<td><%=rs.getString(6) %></td>
-        	<td><%=rs.getString(9) %></td>
+        	<td><%=rs.getString(7) %></td>
+        	<td><%=rs.getString(10) %></td>
         	<td>
         	        	
         		<a href="editbankdetails.jsp">Edit Details</a>
