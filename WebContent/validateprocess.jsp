@@ -3,10 +3,10 @@
    try{
 	   
 	   ResultSet rs = null;
-	   Connection con=DbCon.dbCon();
-	   String unqid=request.getParameter("unqid");
-	   
-	   String bdbname= session.getAttribute("bname")+"bankinfo";
+	   Connection con = DbCon.dbCon();
+	   String unqid = request.getParameter("unqid");
+	   String bname = session.getAttribute("bname").toString();
+	   String bdbname = bname+"bankinfo";
 	   System.out.println(bdbname);
 	   
 	   //Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -20,11 +20,11 @@
 	   if(rs.next()){
 		   //TODO: SET SESSION AND REDIRECT TO BANKADMIN HOME PAGE
 		   Statement stmt = con.createStatement();
-	   		stmt.executeUpdate("update tempuserbankinfo set status =1,remarks='User Verified' where unqid='"+unqid+"'");
+	   		stmt.executeUpdate("update tempuserbankinfo set status =1,remarks='User Verified' where bname='"+bname+"' AND unqid='"+unqid+"'");
 	   		System.out.println("stmt exec");
 		   }else{
 			   Statement stmt = con.createStatement();
-			   stmt.executeUpdate("update tempuserbankinfo set status =-1,remarks='Information Mismatch' where unqid='"+unqid+"'");
+			   stmt.executeUpdate("update tempuserbankinfo set status =-1,remarks='Information Mismatch' where bname='"+bname+"' AND unqid'"+unqid+"'");
 			   System.out.println("stmt exec");
 			   }
 	   con.close();
