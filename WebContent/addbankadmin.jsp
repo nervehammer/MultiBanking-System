@@ -2,7 +2,7 @@
 
 
 <form action="addbankadminprocess.jsp" name="f1" method=get>
-	<h2><b>Enter Bank And Admin Details</b></h2>
+	<h2><b>Enter Bank And Administrator Details</b></h2>
  
 		<table align="center">
  			
@@ -36,14 +36,14 @@
         	</tr>
         	        	
         	<tr>
-        	<td><h3>Provide an Admin</h3></td>
+        	<td><h3>Username for Administrator</h3></td>
         	<td>
         	<input type="text" name="username">
         	</td>
         	</tr>
 
         	<tr>
-        	<td><h3>New Password</h3></td>
+        	<td><h3>Password</h3></td>
         	<td>
         	<input type="password" name="userpassword">
         	</td>

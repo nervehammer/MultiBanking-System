@@ -1,17 +1,13 @@
 <%@ page import ="java.sql.*,com.jdbc.*" %>
 <%
    try{
+	   String adminname=request.getParameter("adminname");
+	   String adminpass=request.getParameter("adminpass");
 	   
 	   ResultSet rs = null;
 	   Connection con=DbCon.dbCon();
 	   
-	   //Class.forName("oracle.jdbc.driver.OracleDriver");
-	   //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","java");
-	   
-	   String adminname=request.getParameter("adminname");
-	   String adminpass=request.getParameter("adminpass");
-	   
-	   PreparedStatement st=con.prepareStatement("select adminname from admininfo where adminname=? and adminpass=?");
+	   PreparedStatement st = con.prepareStatement("select adminname from admininfo where adminname=? and adminpass=?");
 	   
 	   st.setString(1,adminname);
 	   st.setString(2,adminpass);

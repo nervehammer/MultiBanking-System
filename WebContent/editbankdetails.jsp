@@ -3,62 +3,74 @@
 <%!
 	String bname,cid,accno,ahname,mnum,atype;
 	public void setvalue(ResultSet rs)throws SQLException{
-		bname=rs.getString(1);
+		//bname=rs.getString(1);
 		accno=rs.getString(2);
 		ahname=rs.getString(3);
 		mnum=rs.getString(4);
-		atype=rs.getString(6);
+		atype=rs.getString(5);
 		cid=rs.getString(10);
 	}
 %>
-   <%  try{
-	   
-	   ResultSet rs = null;
-	   Connection con=DbCon.dbCon();
-	   
-	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status in(0,-1) and unqid=?");
-	   st.setString(1,session.getAttribute("unqid").toString());
-	   rs = st.executeQuery();
-	   while(rs.next())
-   	{
-	   setvalue(rs);
-   	}   
-     }catch(Exception e){
-    	 System.out.println("Error in editbankdetails");
-     }
+
+<%  
+	try{
+		ResultSet rs = null;
+		Connection con=DbCon.dbCon();
+		
+		bname = request.getParameter("bname");
+		System.out.println(bname);
+		
+		PreparedStatement st = con.prepareStatement("select * from tempuserbankinfo where ((status in(0,-1) and unqid=?) and bname=?)");
+		st.setString(1, session.getAttribute("unqid").toString());
+		st.setString(2, bname);
+		
+		rs = st.executeQuery();
+		
+		if(rs.next()){
+			setvalue(rs);
+			}
+		} catch(Exception e){
+			System.out.println("Error in editbankdetails");
+			}
 	   
 	   
 %>
 
-<form action="editbankdetailsprocess.jsp?bname=<%=bname %>" method=get>
-	<h2><b>Enter Account Details</b></h2>
+<form action="editbankdetailsprocess.jsp?bname=<%=bname %>" method=get> <!-- Should be post -->
+	<h2><b>Edit Your Account Details</b></h2>
  
 		<table align="center">
- 	 
-        	<tr>
-        	
-        	<tr>
+		
+			<tr>
         	<td><h3>Customer ID</h3></td>
         	<td>
         	<input type="text" name="cid" value="<%=cid%>">
         	</td>
         	</tr>
 
+			<tr>
  			<td><h3>Select Bank</h3></td>
  			<td>
  			<select name="bankdes" >
- 			<option value="">- Please select a bank -</option>
+ 			<option>- Please select a bank -</option>	<!-- User should see the last submitted value of bank i.e. bname -->
 			<%
 				Connection con = DbCon.dbCon();
 				
 				PreparedStatement st = con.prepareStatement("select * from bankinfo");
 				
-				ResultSet rs = st.executeQuery();
+				ResultSet rs1 = st.executeQuery();
 				
-				while(rs.next()){
+				while(rs1.next()){
 
 			%>
-			<option><%=rs.getString(2)%></option> <!--not able to set fetched value from tempdb  -->
+			<option 
+			
+				<% if(rs1.getString(3).equals(bname)){
+					%> selected=<%=rs1.getString(3) %>
+				
+				<% } %>
+			
+			><%=rs1.getString(2)%></option>
 				<%}%>
   			</select>
   			</td>
