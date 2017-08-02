@@ -5,8 +5,7 @@
 	   ResultSet rs = null;
 	   Connection con=DbCon.dbCon();
 	   String unqid = session.getAttribute("unqid").toString();
-   
-	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status in(-1,0) and unqid=?");
+   	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status in(-1,0) and unqid=?");
 	   st.setString(1, unqid);
 	   
 	   rs = st.executeQuery();
@@ -36,12 +35,13 @@
         	%>
 
         	<tr>
+        	<td><%=rs.getString(1) %></td>
+        	<td><%=rs.getString(10) %></td>
         	<td><%=rs.getString(2) %></td>
         	<td><%=rs.getString(3) %></td>
         	<td><%=rs.getString(4) %></td>
         	<td><%=rs.getString(5) %></td>
-        	<td><%=rs.getString(6) %></td>
-        	<td><%=rs.getString(10) %></td>
+        	<td><%=rs.getString(9) %></td>
         	<td>
         	        	
         		<a href="editbankdetails.jsp">Edit Details</a>

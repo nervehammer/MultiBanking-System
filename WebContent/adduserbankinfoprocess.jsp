@@ -34,15 +34,15 @@
 	String bankname = rs.getString(3);
 	
 	     
-	PreparedStatement st = con.prepareStatement("insert into tempuserbankinfo (bname,anum,ahname,ppass,mnum,atype,tpass,unqid) values(?,?,?,?,?,?,?,?)");
- 	    st.setString(1,bname);
+	PreparedStatement st = con.prepareStatement("insert into tempuserbankinfo (bname,cid,anum,ahname,mnum,atype,tpass,unqid) values(?,?,?,?,?,?,?,?)");
+ 	    st.setString(1,bankname);
 		st.setString(2,cid);
 		st.setString(3,anum);    
 		st.setString(4,ahname);
-		st.setString(5,unqid);
-		st.setString(6,mnum);
-		st.setString(7,atype);
-		st.setString(8,tpass);
+		st.setString(5,mnum);
+		st.setString(6,atype);
+		st.setString(7,tpass);
+		st.setString(8,unqid);
 		
   	System.out.println("query prepared!");
   	 	

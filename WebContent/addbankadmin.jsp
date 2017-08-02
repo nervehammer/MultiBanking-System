@@ -6,12 +6,6 @@
  
 		<table align="center">
  			
-        	<!-- <tr>
-        	<td><h3>Bank Name</h3></td>
-        	<td>
-        	<input type="text" name="bankname">
-        	</td>
-        	</tr> -->
         	
         	<tr>
  			<td><h3>Select Bank</h3></td>
@@ -33,7 +27,14 @@
   			</select>
   			</td>
   			</tr>
-
+			
+			<tr>
+        	<td><h3>Bank ID</h3></td>
+        	<td>
+        	<input type="text" name="bankid">
+        	</td>
+        	</tr>
+        	        	
         	<tr>
         	<td><h3>Provide an Admin</h3></td>
         	<td>
