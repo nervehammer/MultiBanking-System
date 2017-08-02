@@ -3,9 +3,11 @@
      try{
 	   
 	   ResultSet rs = null;
-	   Connection con=DbCon.dbCon();  
-	   
-	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status=-1 OR status=0");
+	   Connection con=DbCon.dbCon();
+	   String unqid = session.getAttribute("unqid").toString();
+   
+	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status in(-1,0) and unqid=?");
+	   st.setString(1, unqid);
 	   
 	   rs = st.executeQuery();
 	   
@@ -39,7 +41,6 @@
         	<td><%=rs.getString(4) %></td>
         	<td><%=rs.getString(5) %></td>
         	<td><%=rs.getString(6) %></td>
-        	<td><%=rs.getString(7) %></td>
         	<td><%=rs.getString(10) %></td>
         	<td>
         	        	

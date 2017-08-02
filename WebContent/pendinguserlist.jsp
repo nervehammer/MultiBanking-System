@@ -5,10 +5,10 @@
 	   ResultSet rs = null;
 	   Connection con=DbCon.dbCon();
 	   
-	   //Class.forName("oracle.jdbc.driver.OracleDriver");
-	   //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","java");
+	   String bdbname= session.getAttribute("bankname").toString();
 	   
-	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status=0");
+	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status=0 AND bname=?");
+	   st.setString(1, bdbname);
 	   
 	   rs = st.executeQuery();
 	   
@@ -42,12 +42,18 @@
         			unqid=rs.getString(1);
         		
         	%>
-         	<td><%=rs.getString(3) %></td>
-        	<td><%=rs.getString(4) %></td>
+         	
+             	
+        	<td><%=rs.getString(2) %></td>
+        	<td><%=rs.getString(3) %></td>
         	<td><%=rs.getString(5) %></td>
         	<td><%=rs.getString(6) %></td>
-        	<td><%=rs.getString(7) %></td>
-        	<td><a href="validateprocess.jsp?unqid=<%=unqid%>">Validate</a></td>
+        	<td>
+        	<!-- <input type="submit" value="Valitate" submit="validateprocess.jsp"> -->
+        	<!-- <button onclick="validateprocess.jsp">Validate</button> -->
+        	
+        	<a href="validateprocess.jsp?id=<%=unqid %>">Validate</a>
+        	</td>
         	
         	</tr>
         	

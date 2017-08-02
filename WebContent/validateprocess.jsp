@@ -6,15 +6,15 @@
 	   Connection con = DbCon.dbCon();
 	   String unqid = request.getParameter("unqid");
 	   String bname = session.getAttribute("bname").toString();
-	   String bdbname = bname+"bankinfo";
+	   String bdbname = bname+"info";
 	   System.out.println(bdbname);
+	   Connection con=DbCon.dbCon();
 	   
-	   //Class.forName("oracle.jdbc.driver.OracleDriver");
-	   //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","java");
 	   
+	   int unqid = Integer.parseInt(request.getParameter("id"));
+	     
 	   PreparedStatement st=con.prepareStatement("select accno from " +bdbname+" ,tempuserbankinfo where accno=tempuserbankinfo.anum AND unqid=?");
-		st.setString(1, unqid);	   
-	   
+	   st.setString(1, unqid);	 	   
 	   rs = st.executeQuery();
 	   
 	   if(rs.next()){

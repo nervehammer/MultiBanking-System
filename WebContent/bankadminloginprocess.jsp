@@ -8,10 +8,22 @@
 	   //Class.forName("oracle.jdbc.driver.OracleDriver");
 	   //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","java");
 	   
-	   String bankname=request.getParameter("bankname");
+	   String bankdes=request.getParameter("bankdes");
 	   String uname=request.getParameter("username");
 	   String upass=request.getParameter("userpassword");
-	   session.setAttribute("bname", bankname);
+	   
+	   
+		PreparedStatement st1 = con.prepareStatement("select * from bankinfo where bankdescription=?");
+		st1.setString(1, bankdes);
+		
+		rs = st1.executeQuery();
+		rs.next();
+		String bankname = rs.getString(3);
+	   
+	   
+	   
+	   
+	   session.setAttribute("bankname", bankname);
 	   
 	   PreparedStatement st=con.prepareStatement("select bankname from bankadmininfo where bankname=? and username=? and userpassword=?");
 	   

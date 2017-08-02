@@ -6,7 +6,27 @@
  
 		<table align="center">
  			
-        	<tr>
+ 			<tr>
+ 			<td><h3>Select Bank</h3></td>
+ 			<td>
+ 			<select name="bankdes">
+ 			<option value="">- Please select a bank -</option>
+			<%
+				Connection con = DbCon.dbCon();
+				
+				PreparedStatement st = con.prepareStatement("select * from bankinfo");
+				
+				ResultSet rs = st.executeQuery();
+				
+				while(rs.next()){
+
+			%>
+			<option><%=rs.getString(2)%></option>
+				<%}%>
+  			</select>
+  			</td>
+  			</tr>
+ 
         	<td><h3>Enter Bank</h3></td>
         	<td>
         	<input type="text" name="bname">
@@ -18,7 +38,7 @@
         	<td>
         	<input type="text" name="cid">
         	</td>
-        	</tr>
+        	</tr> 
 
         	<tr>
         	<td><h3>Enter Account Number</h3></td>
@@ -33,8 +53,7 @@
         	<input type="text" name="ahname">
         	</td>
         	</tr>
-
-              
+        	            
        		<tr>
        		<td><h3>Mobile Number</h3></td>
        		<td>

@@ -12,7 +12,7 @@ public class DbCon {
 		try {
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-				System.out.println("Hello");
+				System.out.println("Oracle Driver");
 			} catch (ClassNotFoundException e) {
 				// TODO Tell Administrator to install Oracle Database
 				e.printStackTrace();
