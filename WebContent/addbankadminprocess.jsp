@@ -16,6 +16,7 @@
    
    
 	String bankdes=request.getParameter("bankdes");
+	String bankid=request.getParameter("bankid");
 	String username=request.getParameter("username");
 	String userpassword=request.getParameter("userpassword");
 	

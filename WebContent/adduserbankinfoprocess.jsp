@@ -35,7 +35,7 @@
 	
 	     
 	PreparedStatement st = con.prepareStatement("insert into tempuserbankinfo (bname,anum,ahname,ppass,mnum,atype,tpass,unqid) values(?,?,?,?,?,?,?,?)");
- 	    st.setString(1,bname);
+ 	    st.setString(1,bankdes);
 		st.setString(2,cid);
 		st.setString(3,anum);    
 		st.setString(4,ahname);

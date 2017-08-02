@@ -4,17 +4,16 @@
 	   
 	   ResultSet rs = null;
 	   Connection con = DbCon.dbCon();
-	   String unqid = request.getParameter("unqid");
+	  // String unqid = request.getParameter("unqid");
 	   String bname = session.getAttribute("bname").toString();
 	   String bdbname = bname+"info";
 	   System.out.println(bdbname);
-	   Connection con=DbCon.dbCon();
 	   
 	   
-	   int unqid = Integer.parseInt(request.getParameter("id"));
+	  int unqid = Integer.parseInt(request.getParameter("id"));
 	     
 	   PreparedStatement st=con.prepareStatement("select accno from " +bdbname+" ,tempuserbankinfo where accno=tempuserbankinfo.anum AND unqid=?");
-	   st.setString(1, unqid);	 	   
+	   st.setInt(1, unqid);	 	   
 	   rs = st.executeQuery();
 	   
 	   if(rs.next()){
