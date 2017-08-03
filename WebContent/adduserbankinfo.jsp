@@ -26,14 +26,7 @@
   			</select>
   			</td>
   			</tr>
- 
-        	<!-- <td><h3>Enter Bank</h3></td>
-        	<td>
-        	<input type="text" name="bname">
-        	</td>
-        	</tr>
-        	 -->
-        	 
+  			        	 
         	<tr>
         	<td><h3>Enter Customer ID</h3></td>
         	<td>

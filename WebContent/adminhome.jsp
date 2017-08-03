@@ -93,6 +93,14 @@
 
 <a href="addbankadmin.jsp">Add BANK ADMINISTRATOR</a>	<!-- To redesign into "manage b-admins" -->
 
+
+<br />
+<br />
+<br />
+<br />
+
+<a href="">Manage Bank Administrators</a>
+
 <br />
 <br />
 <br />

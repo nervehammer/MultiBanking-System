@@ -1,25 +1,20 @@
-<h1>USER HOME</h1>
-
-<%-- <jsp:include page="addbank.jsp"></jsp:include> --%>
-
-
 <html>
-<body>
+	<body>
 
-<a href="adduserbankinfo.jsp">Add bank</a>
+		<a href="adduserbankinfo.jsp">Add bank</a>
 
-<br>
-<br>
+		<br>
+		<br>
 
-<a href="addbankstatus.jsp">Check Add Bank Status</a>
+		<a href="addbankstatus.jsp">Check Add Bank Status</a>
 
 
-<br />
-<br />
-<br />
-<br />
+		<br />
+		<br />
+		<br />
+		<br />
 
-<a href="index.html"><strong>HOME</strong></a>
+		<a href="index.html"><strong>HOME</strong></a>
 
-</body>
+	</body>
 </html>
