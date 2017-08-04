@@ -4,11 +4,12 @@
 	String bname,cid,accno,ahname,mnum,atype;
 	public void setvalue(ResultSet rs)throws SQLException{
 		//bname=rs.getString(1);
-		accno=rs.getString(2);
-		ahname=rs.getString(3);
-		mnum=rs.getString(4);
-		atype=rs.getString(5);
-		cid=rs.getString(10);
+		cid=rs.getString(3);
+		accno=rs.getString(4);
+		ahname=rs.getString(5);
+		mnum=rs.getString(6);
+		atype=rs.getString(7);
+		
 	}
 %>
 
@@ -18,6 +19,7 @@
 		Connection con=DbCon.dbCon();
 		
 		bname = request.getParameter("bname");
+		session.setAttribute("bkname",bname);
 		System.out.println(bname);
 		
 		PreparedStatement st = con.prepareStatement("select * from tempuserbankinfo where ((status in(0,-1) and unqid=?) and bname=?)");
@@ -36,7 +38,7 @@
 	   
 %>
 
-<form action="editbankdetailsprocess.jsp?bname=<%=bname %>" method=get> <!-- Should be post -->
+<form action="editbankdetailsprocess.jsp" method=get> <!-- Should be post -->
 	<h2><b>Edit Your Account Details</b></h2>
  
 		<table align="center">
