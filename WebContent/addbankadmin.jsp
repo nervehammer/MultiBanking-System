@@ -1,7 +1,7 @@
 <%@ page import ="java.sql.*,com.jdbc.*" %>
 
 
-<form action="addbankadminprocess.jsp" name="f1" method=get>
+<form action="addbankadminprocess.jsp" method=get>
 	<h2><b>Enter Bank And Administrator Details</b></h2>
  
 		<table align="center">
@@ -22,19 +22,13 @@
 				while(rs.next()){
 
 			%>
+			
 			<option><%=rs.getString(2)%></option>
 				<%}%>
   			</select>
   			</td>
   			</tr>
-			
-			<tr>
-        	<td><h3>Bank ID</h3></td>
-        	<td>
-        	<input type="text" name="bankid">
-        	</td>
-        	</tr>
-        	        	
+					        	        	
         	<tr>
         	<td><h3>Username for Administrator</h3></td>
         	<td>

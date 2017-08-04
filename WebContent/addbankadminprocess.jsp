@@ -6,20 +6,19 @@
 		String bankname = "";
 		
 		String bankdes=request.getParameter("bankdes");
-		String bankid=request.getParameter("bankid");
 		String username=request.getParameter("username");
 		String userpassword=request.getParameter("userpassword");
-		
 		PreparedStatement st1 = con.prepareStatement("select * from bankinfo where bankdescription=?");
 		st1.setString(1, bankdes);
 		
 		ResultSet rs = st1.executeQuery();
 		rs.next();
-		
+		int bankid=rs.getInt(1);
 		bankname = rs.getString(3);
 		
+		
 		PreparedStatement st = con.prepareStatement("insert into bankadmininfo (bankid,bankname,username,userpassword) values(?,?,?,?)");
-		st.setString(1,bankid);
+		st.setInt(1,bankid);
 		st.setString(2,bankname);
 		st.setString(3,username);
 		st.setString(4,userpassword);

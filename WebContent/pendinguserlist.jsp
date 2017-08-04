@@ -50,9 +50,7 @@
         	<td><%=rs.getString(6) %></td>
         	<td><%=rs.getString(7) %></td>
         	<td>
-        	<!-- <input type="submit" value="Valitate" submit="validateprocess.jsp"> -->
-        	<!-- <button onclick="validateprocess.jsp">Validate</button> -->
-        	
+        
         	<a href="validateprocess.jsp?id=<%=unqid %>">Validate</a>
         	</td>
         	
