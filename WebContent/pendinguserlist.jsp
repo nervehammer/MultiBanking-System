@@ -5,10 +5,10 @@
 	   ResultSet rs = null;
 	   Connection con=DbCon.dbCon();
 	   
-	   String bdbname= session.getAttribute("bankname").toString();
+	   String bankname= session.getAttribute("bankname").toString();
 	   
 	   PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status=0 AND bname=?");
-	   st.setString(1, bdbname);
+	   st.setString(1, bankname);
 	   
 	   rs = st.executeQuery();
 	   
@@ -44,10 +44,11 @@
         	%>
          	
              	
-        	<td><%=rs.getString(2) %></td>
         	<td><%=rs.getString(3) %></td>
+        	<td><%=rs.getString(4) %></td>
         	<td><%=rs.getString(5) %></td>
         	<td><%=rs.getString(6) %></td>
+        	<td><%=rs.getString(7) %></td>
         	<td>
         	<!-- <input type="submit" value="Valitate" submit="validateprocess.jsp"> -->
         	<!-- <button onclick="validateprocess.jsp">Validate</button> -->
