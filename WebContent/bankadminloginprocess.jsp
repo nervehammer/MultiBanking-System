@@ -24,6 +24,7 @@
 	   
 	   //Setting a attribute in session to send bankname in pendinguserlist.jsp  
 	   session.setAttribute("bankname", bankname);
+	   session.setAttribute("bankid",rs.getString(1));
 	   
 	   PreparedStatement st=con.prepareStatement("select bankname from bankadmininfo where bankname=? and username=? and userpassword=?");
 	   
