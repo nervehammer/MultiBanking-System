@@ -1,4 +1,8 @@
-<!--TODO: action left of this table  -->
+<html>
+<head>
+
+</head>
+<body>
 
 <form action="userloginprocess.jsp">   
 
@@ -11,3 +15,6 @@
 </form>
 
 <a href="usersignup.jsp">Not a User! Click here to Sign Up for a new account!</a>
+
+</body>
+</html>

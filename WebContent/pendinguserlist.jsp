@@ -12,7 +12,7 @@
 	   
 	   rs = st.executeQuery();
 	   
-	   //if(rs.next()){
+	   if(rs.next()){
 %>
 		
 		<table align="center">
@@ -29,7 +29,7 @@
 
         	<%
         	
-        	while(rs.next())
+        	do
         	{
         	
         	%>
@@ -56,13 +56,19 @@
         	
         	</tr>
         	
-        	<%}
+        	<%}while(rs.next());
         	con.close();
         	%>
 	</table>
 			
 			<%
-	   		con.close();
+	   }
+	   else {%>
+	   
+	   <h1>Hello Bank Admin! No user to verify</h1>
+	   <a href = "bankadminhome.jsp"><h1>HOME</h1></a>
+		   
+	   <%}
 	   
    	}catch(Exception e){
 	  	System.out.println("error");

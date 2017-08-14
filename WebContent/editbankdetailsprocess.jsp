@@ -26,7 +26,7 @@
 		
 		rs.next();  */
 		
-		 PreparedStatement st1 = con.prepareStatement("select bankname from bankinfo where bankdescription=?");
+		PreparedStatement st1 = con.prepareStatement("select bankname from bankinfo where bankdescription=?");
 		st1.setString(1, bankdes);
 		
 		rs = st1.executeQuery();
