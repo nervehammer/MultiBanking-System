@@ -1,3 +1,4 @@
+<%@ page import ="java.sql.*,com.jdbc.*" %>
 <html>
 	<body>
 
@@ -7,6 +8,15 @@
 		<br>
 
 		<a href="addbankstatus.jsp">Check Add Bank Status</a>
+		
+		
+		<br />
+		<br />
+		<br />
+		<br />
+		
+		<!--TODO: If a user has atleast one verified account details, then make a link Payments/Transfer  -->
+		
 
 
 		<br />

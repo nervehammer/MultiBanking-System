@@ -7,7 +7,7 @@
 		
 		String unqid = session.getAttribute("unqid").toString();
 		
-		PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where unqid=?");
+		PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where unqid=? AND STATUS IN(0,-1)");
 		st.setString(1, unqid);
 		
 		rs = st.executeQuery();

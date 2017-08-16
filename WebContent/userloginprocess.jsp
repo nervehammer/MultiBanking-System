@@ -24,3 +24,5 @@
 			out.println("not valid");
 			}
 %>
+
+//TODO: Set the current/latest selected bank
