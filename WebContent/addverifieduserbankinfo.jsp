@@ -13,7 +13,13 @@ try{
 	 rsq=st.executeQuery(query);
 	 rsq.next();
 	 
-	 PreparedStatement pst=con.prepareStatement("INSERT INTO USERBANKINFO (UNQID,BANKID,CID,ACCNO,AHNAME,ATYPE,TPASS) VALUES (?,?,?,?,?,?,?)");
+	 PreparedStatement bankstmt = con.prepareStatement("SELECT BAL FROM " +bname +"INFO WHERE CID=?");
+	 bankstmt.setString(1, rsq.getString(3));
+	 rs=bankstmt.executeQuery();
+	 rs.next();
+	 String bal = rs.getString(1);
+	 
+	 PreparedStatement pst=con.prepareStatement("INSERT INTO USERBANKINFO (UNQID,BANKID,CID,ACCNO,AHNAME,ATYPE,TPASS,BALANCE) VALUES (?,?,?,?,?,?,?,?)");
 	 pst.setString(1,tempuid);
 	 pst.setString(2,session.getAttribute("bankid").toString());
 	 pst.setString(3,rsq.getString(3));
@@ -21,17 +27,21 @@ try{
 	 pst.setString(5,rsq.getString(5));
 	 pst.setString(6,rsq.getString(7));
 	 pst.setString(7,rsq.getString(8));
+	 pst.setString(8, bal);
 	 rs = pst.executeQuery();
 	 System.out.println("Data Inserted successfully");
-	 st2=con.createStatement();
+	 
+	 /* st2=con.createStatement();
 	 String delquery="DELETE FROM tempuserbankinfo WHERE unqid='"+tempuid+"' AND bname='"+bname+"'";
 	 rsq=st.executeQuery(delquery);
 	 session.removeAttribute("tempuid");
-	 System.out.println("Deleted temp entry");
+	 System.out.println("Deleted temp entry"); */ 	//No need to delete here
+	 
+	 response.sendRedirect("pendinguserlist.jsp");
 	 
 	
 }catch(Exception e){
 	 e.printStackTrace();
 }
 
-%>    
+%>

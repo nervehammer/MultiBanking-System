@@ -38,8 +38,11 @@
 		   //TODO: SET SESSION AND REDIRECT TO BANKADMIN HOME PAGE
 		   response.sendRedirect("bankadminhome.jsp");
 		   }else{
-			   System.out.println("invalid details");
-			   }
+			   %>
+			   
+			   <h1>Invalid Bank Adim Login</h1>
+			   
+			   <%}
 	   con.close();
 	   
    }catch(Exception e){

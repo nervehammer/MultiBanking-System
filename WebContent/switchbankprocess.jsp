@@ -28,3 +28,5 @@
 		e.printStackTrace();
 	}
 %>
+
+//TODO: Set/Update curreent selected bank.

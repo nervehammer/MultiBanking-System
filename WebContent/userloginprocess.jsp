@@ -1,5 +1,6 @@
 <%@ page import ="java.sql.*,com.jdbc.*" %>
-<h2>USER VALIDATION CHECK HERE</h2>
+
+
 
 <%
 	String uname = request.getParameter("username"); 
@@ -23,3 +24,5 @@
 			out.println("not valid");
 			}
 %>
+
+//TODO: Set the current/latest selected bank

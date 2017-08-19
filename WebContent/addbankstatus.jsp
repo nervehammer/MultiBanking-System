@@ -7,7 +7,7 @@
 		
 		String unqid = session.getAttribute("unqid").toString();
 		
-		PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where status in(-1,0) and unqid=?");
+		PreparedStatement st=con.prepareStatement("select * from tempuserbankinfo where unqid=? AND STATUS IN(0,-1)");
 		st.setString(1, unqid);
 		
 		rs = st.executeQuery();
@@ -16,7 +16,7 @@
 		{
 %>
 		
-		<table align="center">
+		<table align="center" border="2" width="70%">
 			<tr>
 			
         	<th><h4>Bank Name</h4></th>
@@ -27,6 +27,7 @@
         	<th><h4>Account Type</h4></th>
         	<th><h4>Remarks</h4></th>
         	<th><h4>Operation</h4></th>
+        	<th><h4>Remove Entry</h4></th>
         	
         	
 
@@ -56,9 +57,33 @@
         	<td><%=rs.getString(6) %></td>
         	<td><%=rs.getString(7) %></td>
         	<td><%=rs.getString(10) %></td>
+        	
+        	
+        	<% 
+        		int status = Integer.parseInt(rs.getString(9));
+        	
+        		if(status == 1) {
+        	
+        	%>
+        	<td>
+        	<a href="usertransactionhome.jsp?bname=<%=rs.getString(2) %>">Transaction Module</a>
+        	</td>
+        	<td>
+        	<a href = "">N.A.</a>
+        	</td>
+        	<%
+        		}
+        		else {
+        	%>
         	<td>
         	<a href="editbankdetails.jsp?bname=<%=rs.getString(2) %>">Edit Details</a>
         	</td>
+        	<td>
+        	
+        	<a href = "deleteuserbankinfo.jsp?bname=<%=rs.getString(2) %>">Delete</a>
+        	
+        	</td>
+        	<% } %>
         	
         	</tr>
         	
