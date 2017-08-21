@@ -2,54 +2,59 @@
 
 <%
 	try{
-		ResultSet rs,rs1 = null;
+		ResultSet rs,rs1,rs2,rs3 = null;
 		Connection con=DbCon.dbCon();
 		
 		String unqid = session.getAttribute("unqid").toString();
 		System.out.println(unqid);
-		String bname = session.getAttribute("bname").toString();
-		System.out.println(bname);
 		
-		PreparedStatement st1 = con.prepareStatement("SELECT BANKID FROM BANKINFO WHERE BANKNAME=?");		//Executed to fetch the bankid 
-		st1.setString(1, bname);
-		rs=st1.executeQuery();
-		rs.next();
-		String bankID = rs.getString(1);
+		String beneficiarybankdes = request.getParameter("beneficiarybankdes");
+		System.out.println(beneficiarybankdes);
 		
 		String beneficiaryname = request.getParameter("beneficiaryname");
 		String beneficiaryaccountnumber = request.getParameter("beneficiaryaccountnumber");
 		Double amount = Double.parseDouble(request.getParameter("amount"));
 		
-		PreparedStatement st2 = con.prepareStatement("SELECT CID FROM " +bname +"INFO WHERE AHNAME=? AND ACCNO=?");		//executed to check whether beneficiary exists in that bank or not.
+		PreparedStatement st1 = con.prepareStatement("SELECT BANKNAME FROM BANKINFO WHERE BANKDESCRIPTION=?");
+		st1.setString(1, beneficiarybankdes);
+		rs=st1.executeQuery();
+		rs.next();
+		String beneficiarybankname = rs.getString(1);
+		System.out.println(beneficiarybankname);
+		
+		PreparedStatement st2 = con.prepareStatement("SELECT CID FROM " +beneficiarybankname +"INFO WHERE AHNAME=? AND ACCNO=?");		//executed to check whether beneficiary exists in that bank or not.
 		st2.setString(1, beneficiaryname);
 		st2.setString(2, beneficiaryaccountnumber);
-		rs=st2.executeQuery();
+		rs1=st2.executeQuery();
 		
-		if (rs.next()) {		//If exists then print summary
+		if (rs1.next()) {		//If exists then print summary
 			
 			session.setAttribute("beneficiaryname", beneficiaryname);						//Attributes sent via sessoin to the process.
 			session.setAttribute("beneficiaryaccountnumber", beneficiaryaccountnumber);
 			session.setAttribute("amount", amount);
-			session.setAttribute("bankID", bankID);
+			session.setAttribute("beneficiarybankname", beneficiarybankname);
+			session.setAttribute("beneficiarybankdes", beneficiarybankdes);
 			
-			PreparedStatement st3 = con.prepareStatement("SELECT * FROM USERBANKINFO WHERE UNQID=? AND BANKID=?");
-			st3.setString(1, unqid);
-			st3.setString(2, bankID);
-			rs=st3.executeQuery();
-			rs.next();
+			PreparedStatement st3 = con.prepareStatement("SELECT * FROM BANKINFO WHERE BANKID=?");
+			st3.setString(1, session.getAttribute("latestBankID").toString());
+			rs2=st3.executeQuery();
+			rs2.next();
+			String remitterBankName = rs2.getString(3);
+			System.out.println(remitterBankName);
+			session.setAttribute("remitterBankName", remitterBankName);
 			
-			PreparedStatement st4 = con.prepareStatement("SELECT BAL FROM "+bname +"INFO WHERE ACCNO=?");
-			st4.setString(1, rs.getString(4));
-			rs1=st4.executeQuery();
-			rs1.next();
+			PreparedStatement st4 = con.prepareStatement("SELECT BAL FROM " +remitterBankName +"INFO WHERE ACCNO=?");
+			st4.setString(1, session.getAttribute("accno").toString());
+			rs3=st4.executeQuery();
+			rs3.next();
 			
-			Double yourBalance = Double.parseDouble(rs1.getString(1));
+			Double yourBalance = Double.parseDouble(rs3.getString(1));
 			
 %>
 
 		<center>
 		
-		<form action=transfertosamebankprocess.jsp name="f1" method="get">
+		<form action="transferamountprocess.jsp" name="f1" method="get">
 		
 		<h2>Overview</h2>
 		
@@ -62,14 +67,21 @@
 				<tr>
 				<td>Name</td>
 				<td>
-				<%=rs.getString(5) %>
+				<%=session.getAttribute("ahname") %>
+				</td>
+				</tr>
+				
+				<tr>
+				<td>Bank</td>
+				<td>
+				<%=rs2.getString(2) %>
 				</td>
 				</tr>
 		
 				<tr>
 				<td>Account Number</td>
 				<td>
-				<%=rs.getString(4) %>
+				<%=session.getAttribute("accno") %>
 				</td>
 				</tr>
 		
@@ -88,6 +100,13 @@
 				<td>Name</td>
 				<td>
 				<%=beneficiaryname %>
+				</td>
+				</tr>
+				
+				<tr>
+				<td>Bank</td>
+				<td>
+				<%=session.getAttribute("beneficiarybankdes") %>
 				</td>
 				</tr>
 				

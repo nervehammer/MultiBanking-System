@@ -130,7 +130,7 @@
 			
 			<BR>
 			<input type="submit" value="Print Receipt">&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="button" name=back  value="Home" onClick="window.location='userhome.jsp'">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" name=back  value="Home" onClick="window.location='usertransactionhome.jsp'">&nbsp;&nbsp;&nbsp;&nbsp;
 		
 		</form>
 		
