@@ -21,7 +21,7 @@ try{
 	 
 	 PreparedStatement pst=con.prepareStatement("INSERT INTO USERBANKINFO (UNQID,BANKID,CID,ACCNO,AHNAME,ATYPE,TPASS) VALUES (?,?,?,?,?,?,?)");
 	 pst.setString(1,tempuid);
-	 pst.setString(2,session.getAttribute("bankID").toString());
+	 pst.setString(2,session.getAttribute("bankid").toString());
 	 pst.setString(3,rsq.getString(3));
 	 pst.setString(4,rsq.getString(4));
 	 pst.setString(5,rsq.getString(5));

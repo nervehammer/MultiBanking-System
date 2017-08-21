@@ -25,19 +25,18 @@ private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.
 Random random = new Random(System.currentTimeMillis());
 
 public String generateTransID() {
-	String id = "";
+	String n1 = "SRD";
     for (int i = 0; i < 2; i++) {
-        String n = BigInteger.valueOf(Math.abs(random.nextLong())).toString(32).toUpperCase();
-        if (n.length() > 8) {
-            if (n.length() > 10) {
-                n = n.substring(n.length() - 10);
+        String n2 = BigInteger.valueOf(Math.abs(random.nextLong())).toString(32).toUpperCase();
+        if (n2.length() > 8) {
+            if (n2.length() > 10) {
+                n2 = n2.substring(n2.length() - 10);
             }
-            System.out.println(n);
-            id += n;
-            System.out.println(id);
+            System.out.println(n2);
+            n1+=n2;
         }
     }
-    return id;
+    return n1;
 }
 
 %>

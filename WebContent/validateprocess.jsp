@@ -31,15 +31,15 @@
 					break;
 				} else {
 					System.out.println("4");
-					PreparedStatement st2=con.prepareStatement("SELECT BANKID FROM BANKINFO WHERE BANKNAME=?");
+					/* PreparedStatement st2=con.prepareStatement("SELECT BANKID FROM BANKINFO WHERE BANKNAME=?");
 					st2.setString(1, bname);
 					System.out.println("5");
 					rs2=st2.executeQuery();
 					
 					System.out.println("6");
 					rs2.next();
-					System.out.println("7");
-					String bankID = rs2.getString(1);
+					System.out.println("7"); */
+					String bankID = session.getAttribute("bankid").toString();
 					System.out.println("8");
 					PreparedStatement st3=con.prepareStatement("UPDATE USERINFO SET LATESTBANKID=? WHERE UNQID=?");
 					st3.setString(1, bankID);
@@ -48,7 +48,7 @@
 					st3.executeUpdate();
 					System.out.println("10");
 					
-					session.setAttribute("bankID", bankID);
+	
 				}
 			}
 			
