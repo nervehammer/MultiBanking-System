@@ -16,6 +16,7 @@
 		st.setString(2, bname);
 		st.executeUpdate();
 		con.close();
+		Thread.sleep(5000);
 		response.sendRedirect("userhome.jsp");
 	}catch(Exception e){
 	   e.printStackTrace();

@@ -46,7 +46,8 @@
 		st.setString(8,bname);
 		st.executeUpdate();
 		con.close();
-		response.sendRedirect("userhome.jsp");
+		Thread.sleep(5000);
+		response.sendRedirect("addbankstatus.jsp");
 	}catch(Exception e){
 	   e.printStackTrace();
 	 }

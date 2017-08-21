@@ -25,4 +25,4 @@
 			}
 %>
 
-//TODO: Set the current/latest selected bank
+<!-- //TODO: Set the current/latest selected bank -->
