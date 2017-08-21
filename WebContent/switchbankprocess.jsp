@@ -3,6 +3,7 @@
 	try{
 		String bankid=request.getParameter("bankid");
 		PreparedStatement pt = null;
+		Statement st = null;
 		Connection con=DbCon.dbCon();
 		ResultSet rs  = null;
 		pt = con.prepareStatement("SELECT * FROM userbankinfo WHERE unqid=? AND bankid=?");
@@ -15,6 +16,9 @@
 		session.setAttribute("anum",rs.getString(4));
 		session.setAttribute("ahname",rs.getString(5));
 		session.setAttribute("atype",rs.getString(6));
+		st = con.createStatement();
+		st.executeUpdate("UPDATE userinfo set latestbankid='"+bankid+"' where unqid='"+session.getAttribute("unqid").toString()+"'");
+		System.out.println("Set new bank");
 		con.close();
 		System.out.println("bankid:"+session.getAttribute("bankid"));
 		System.out.println("cid:"+session.getAttribute("cid"));
