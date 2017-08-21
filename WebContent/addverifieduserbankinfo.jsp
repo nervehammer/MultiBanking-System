@@ -19,15 +19,14 @@ try{
 	 rs.next();
 	 String bal = rs.getString(1);
 	 
-	 PreparedStatement pst=con.prepareStatement("INSERT INTO USERBANKINFO (UNQID,BANKID,CID,ACCNO,AHNAME,ATYPE,TPASS,BALANCE) VALUES (?,?,?,?,?,?,?,?)");
+	 PreparedStatement pst=con.prepareStatement("INSERT INTO USERBANKINFO (UNQID,BANKID,CID,ACCNO,AHNAME,ATYPE,TPASS) VALUES (?,?,?,?,?,?,?)");
 	 pst.setString(1,tempuid);
-	 pst.setString(2,session.getAttribute("bankid").toString());
+	 pst.setString(2,session.getAttribute("bankID").toString());
 	 pst.setString(3,rsq.getString(3));
 	 pst.setString(4,rsq.getString(4));
 	 pst.setString(5,rsq.getString(5));
 	 pst.setString(6,rsq.getString(7));
 	 pst.setString(7,rsq.getString(8));
-	 pst.setString(8, bal);
 	 rs = pst.executeQuery();
 	 System.out.println("Data Inserted successfully");
 	 
