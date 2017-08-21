@@ -74,7 +74,7 @@
 <br>
 <br>
 
-<a href="transactionhistory.jsp"><h2>Available Balance</h2></a>	<!-- To be implemented -->
+<a href="availablebalance.jsp"><h2>Available Balance</h2></a>	<!-- To be implemented -->
 
 <br>
 <br>
