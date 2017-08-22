@@ -4,10 +4,6 @@
 	   
 	   ResultSet rs = null;
 	   Connection con=DbCon.dbCon();
-	   
-	   //Class.forName("oracle.jdbc.driver.OracleDriver");
-	   //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","java");
-	   
 	   PreparedStatement st=con.prepareStatement("SELECT * FROM USERBANKINFO WHERE BANKID=?");
 	   st.setString(1, session.getAttribute("bankid").toString());
 	   System.out.println(session.getAttribute("bankid").toString());
