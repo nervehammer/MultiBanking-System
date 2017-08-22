@@ -6,7 +6,7 @@
 <link href="css/bankadminlogin-style.css" rel="stylesheet" type="text/css" media="all"/>
 
 <link href="css/adduserbankinfostyle.css" rel='stylesheet' type='text/css' media="all" />
-<link rel="stylesheet" href="css/adduserbankinfo-j-forms.css">
+<!-- <link rel="stylesheet" href="css/adduserbankinfo-j-forms.css"> -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
